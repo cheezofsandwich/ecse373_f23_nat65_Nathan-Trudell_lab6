@@ -18,6 +18,8 @@ int main(int argc, char **argv)
 	
 	if (client.call(ik_pose)) {
 		ROS_INFO("Call to ik_service returned [%i] solutions", ik_pose.response.num_sols);
+		ROS_INFO("One set of joint angles:");
+    		ROS_INFO_STREAM(ik_pose.response.joint_solutions[0]);
 	}
 	else {
 		ROS_ERROR("Failed to call service ik_service");

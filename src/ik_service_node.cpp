@@ -26,6 +26,12 @@ bool pose_ik(ik_service::PoseIK::Request &req,
 	// The last element is the required precision of the solutions.
 	
 	res.num_sols=num_sol;
+	for(int i = 0; i < 8; i++){
+		for(int j = 0; j < 6; j++){
+			res.joint_solutions[i].joint_angles[j] = q_sols[i][j];
+		}
+	}
+	ROS_INFO("pose_ik service called");
 	
   	return true;
 }
